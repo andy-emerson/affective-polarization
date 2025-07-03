@@ -1,0 +1,13 @@
+# Affiliation
+
+Now that we have our graphs, we need to provide our nodes with group identity. Affective polarization is dependent on in-group and out-group identities, so we need *at least* two subgraphs. Regardless of how many subgraphs are identified, their union should be the entire set of nodes (i.e. all nodes belong to a group) and their intersection should be the empty set (i.e. no nodes belong to more than one group). The question remains, how should we allocate nodes to subgraphs?
+
+Real-world social networks have community structures. These structures have recognizable intergroup and intragroup patterns of connection. Specifically, intragroup connections tend to be dense, which we call clustering, and intergroup connections tend to be sparse, which we call modularity. While in the real-world we often begin with group identity and then measure its clustering and modularity coefficients, we can also discover communities within a population by partitioning the population in ways that either maximize intragroup connections or minimizing intergroup connections.
+
+The network generator most directly related to community detection is the stochastic block model, making it an excellent choice for studying affective polarization. However, our research is primarily focused on *other* network structures, namely the scale-free property. Nevertheless, if we wish to distinguished between the influence of the scale-free property and the influence of community structures, there will need to be community structures within our scale-free network. We accomplished this in the way nodes are assigned to subgraphs.
+
+We use both spectral partitioning, maximizing intergroup connections by sorting nodes according to their Fiedler vector and partitioning the set. The Fiedler vector is associated with the second-smallest eigenvalue on the Laplacian matrix, $L = D - A$, where $A$ is the adjacency matrix and $D$ is the diagonalmatrix of node degrees. We also use modularity maximization, which is also a spectral method using the leading eigenvector of the modularity matrix
+
+$$B_{ij} = A_{ij} - \frac{k_i k_j}{2m}$$
+
+where $k_i$ is the degree of node $i$ and $m$ is the number of edges in $G$. These two method are compared both to each other as well as to a random subgraph assignment as a baseline of comparison. In each case, the sizes of the partitions are maintained, and only random assignment is not deterministic. You can see the visual differences below for each type of graph (ER or BA) and each method of partitioning (random, spectral, modular).
