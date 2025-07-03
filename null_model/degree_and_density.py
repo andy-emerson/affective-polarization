@@ -44,5 +44,5 @@ axes[1].legend()
 
 # Layout and save
 plt.tight_layout()
-plt.savefig('Comparing ER and BA/plots/degree_and_density.png', dpi=300, bbox_inches='tight')
+plt.savefig('null_model/plots/degree_and_density.png', dpi=300, bbox_inches='tight')
 print("Plot saved as degree_and_density.png")

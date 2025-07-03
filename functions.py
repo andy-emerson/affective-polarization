@@ -3,11 +3,11 @@ import networkx as nx
 import numpy as np
 import powerlaw
 import matplotlib
-matplotlib.use('TkAgg')
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import sqlite3
 import pandas as pd
-from scipy.stats import pearsonr
+from scipy.stats import pearsonr, linregress
 from scipy.stats import ConstantInputWarning
 from scipy.sparse.linalg import eigsh
 import warnings
