@@ -30,11 +30,11 @@ Therefore, our ER graphs should have $m_{ER}\geq\displaystyle{\frac{n \ln n}{2}}
 
 However, in BA graphs, the average degree $\langle k \rangle$ is
 
-$$\langle k \rangle = \frac{2|E|}{n} = \frac{m(n-m)}{n} = 2m - \frac{2m^2}{n}$$
+$$\langle k \rangle = \frac{2|E|}{n} = \frac{2m(n-m)}{n} = 2m\left(1-\frac{m}{n}\right)$$
 
 Therefore, the average degree asymptotically approaches $2m$ as $n$ grows large:
 
-$$\lim_{n\to\infty} \left(2m - \frac{2m^2}{n}\right) = 2m$$
+$$\lim_{n\to\infty} 2m\left(1-\frac{m}{n}\right) = 2m$$
 
 As $n$ increases relative to $m$, our BA graph becomes less dense, approaching zero.
 
@@ -62,7 +62,21 @@ Exponential curve fitting the larger points of intersection strongly suggests th
 
 $$n\leq e^{2m}$$
 
+We can easily derive this same result analytically. We start with our upper bound.
 
+$$m(n-m) \geq \frac{n \ln n}{2}$$
+
+Divide by sides by $n$
+
+$$2m\left(1-\frac{m}{n}\right) \geq \ln n$$
+
+Recall that as $n$ approaches infinity, $\left(1-\frac{m}{n}\right)$ approaches 1. Therefore, 
+
+$$2m\geq\ln n$$
+
+Solve for $n$
+
+$$n\leq e^{2m}$$
 
 ## Conclusion
 
